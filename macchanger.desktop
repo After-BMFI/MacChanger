@@ -1,0 +1,10 @@
+
+[Desktop Entry]
+Type=Application
+Name=MacChanger
+Comment=Change MAC address (requires admin)
+Exec=pkexec /opt/macchanger/MacChanger
+Icon=network-wired
+Terminal=false
+Categories=System;Network;
+StartupNotify=true
