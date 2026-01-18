@@ -1,0 +1,11 @@
+
+
+[project]
+name = "MacChanger"
+version = "1.0.0"
+description = "Cross-platform MAC address changer (Linux first, Kali friendly)"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+  "PySide6>=6.5",
+  "psutil>=5.9"
+]
