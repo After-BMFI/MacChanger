@@ -144,6 +144,27 @@ Minimal dependencies
 No hacks or unsafe shortcuts
 If you plan to distribute publicly, consider packaging as an AppImage for maximum Linux compatibility.
 
+pyproject.toml: Notes.
+pyproject.toml is treated as a control file by Python tools
+This behavior comes from Python Enhancement Proposals (PEPs):
+PEP 518
+PEP 621
+These PEPs say (simplified):
+If a file named pyproject.toml exists,
+Python tooling MUST load and interpret it.
+So tools like:
+pip
+setuptools
+build
+poetry
+hatch
+will always open pyproject.toml, even if:
+it only has comments
+it has “notes”
+it has no [project] section
+it looks inactive to a human
+👉 The filename is the trigger, not the content.
+
 
 
 
