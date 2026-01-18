@@ -67,3 +67,15 @@ Once packaged as a binary, Python is **not required** on the target machine.
 ```bash
 pip install PySide6 psutil pyinstaller
 
+
+Make executable:
+
+chmod +x install_linux.sh
+
+
+Run install:
+
+./install_linux.sh
+
+
+
