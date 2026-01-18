@@ -165,7 +165,188 @@ it has no [project] section
 it looks inactive to a human
 👉 The filename is the trigger, not the content.
 
+Screenshots:
+README screenshots section
+## 📸 Screenshots
+> Add screenshots to: `docs/screenshots/`
+- `docs/screenshots/main-window.png` — Main window (interface + MAC input)
+- `docs/screenshots/success.png` — Successful MAC change popup
+- `docs/screenshots/failure.png` — Permission/tool failure popup
+Example (after you add the files):
+![MacChanger Main Window](docs/screenshots/main-window.png)
+And create folders:
+mkdir -p docs/screenshots
 
+Kali Tools–style format (README section)
+
+If you want the README to read like a Kali tool entry, add/replace with:
+
+## Kali-style Description
+
+**MacChanger** is a lightweight GUI utility for changing network interface MAC addresses on Linux systems.
+It is intended for authorized security testing, lab environments, and privacy workflows where interface
+hardware addresses need to be modified temporarily.
+
+### Requirements
+- Root privileges (via `pkexec` or `sudo`)
+- `iproute2` (`ip`) recommended; `net-tools` (`ifconfig`) supported as fallback
+- Python 3.9+ (development) and dependencies listed below
+
+### Usage
+- Launch MacChanger from the desktop menu (pkexec prompt will appear), or run:
+  ```bash
+  sudo python3 macchanger_gui.py
+
+Select an interface.
+
+Enter a MAC address (or click Random).
+
+Click Apply and review log output.
+
+Notes
+
+MAC changes are typically non-persistent and may revert after reboot or interface reset.
+
+Some drivers/adapters will refuse MAC changes.
+
+Use only on systems and networks you own or have explicit permission to test.
+
+
+## AppImage build instructions (best “all Linux” delivery)
+
+```markdown
+## 📦 AppImage (Recommended for “All Linux”)
+
+AppImage is the simplest way to distribute MacChanger across many distros without worrying about Python
+or dependency versions.
+
+### Build prerequisites (Debian/Kali/Ubuntu)
+```bash
+sudo apt update
+sudo apt install -y patchelf fuse libfuse2 wget
+python3 -m pip install --upgrade pip
+python3 -m pip install PySide6 psutil pyinstaller
+
+Build the binary
+pyinstaller --onefile --name MacChanger macchanger_gui.py
+
+Build AppImage using linuxdeploy
+mkdir -p AppDir/usr/bin
+cp dist/MacChanger AppDir/usr/bin/MacChanger
+
+wget -O linuxdeploy.AppImage https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/linuxdeploy-x86_64.AppImage
+chmod +x linuxdeploy.AppImage
+
+./linuxdeploy.AppImage --appdir AppDir --output appimage
+
+Run
+chmod +x MacChanger-*.AppImage
+./MacChanger-*.AppImage
+
+Note: AppImages are architecture-specific (x86_64 build runs on x86_64 systems).
+MacChanger to ship for all 3 common Linux CPU targets:
+
+x86_64 (most PCs/laptops, Kali typical)
+
+aarch64 / arm64 (Raspberry Pi 4/5 64-bit, ARM laptops/servers)
+
+armhf / armv7l (older Raspberry Pi / 32-bit ARM)
+
+The key rule
+
+You cannot build a truly portable AppImage for another CPU from your current CPU in a reliable way with PySide6/PyInstaller. The correct approach is:
+
+✅ Build once per architecture (native build on each CPU), then distribute 3 AppImages.
+
+Recommended release layout
+releases/
+  MacChanger-x86_64.AppImage
+  MacChanger-aarch64.AppImage
+  MacChanger-armhf.AppImage
+
+Build steps (do the same on each CPU)
+1) Install build deps (Debian/Kali/Ubuntu)
+sudo apt update
+sudo apt install -y patchelf wget python3-venv fuse || true
+
+
+On some distros you may need libfuse2 (older) or fuse3. If AppImage won’t run, install libfuse2.
+
+2) Create venv + install Python deps
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -U pip
+pip install PySide6 psutil pyinstaller
+
+3) Build the binary (PyInstaller)
+pyinstaller --onefile --name MacChanger macchanger_gui.py
+
+
+You will get:
+
+dist/MacChanger
+
+4) Create AppDir
+rm -rf AppDir
+mkdir -p AppDir/usr/bin
+cp dist/MacChanger AppDir/usr/bin/MacChanger
+
+5) Build AppImage using linuxdeploy (per-arch)
+
+Use the linuxdeploy AppImage matching the CPU you’re building on:
+
+x86_64 machine
+wget -O linuxdeploy.AppImage https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/linuxdeploy-x86_64.AppImage
+chmod +x linuxdeploy.AppImage
+./linuxdeploy.AppImage --appdir AppDir --output appimage
+
+arm64 / aarch64 machine
+wget -O linuxdeploy.AppImage https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/linuxdeploy-aarch64.AppImage
+chmod +x linuxdeploy.AppImage
+./linuxdeploy.AppImage --appdir AppDir --output appimage
+
+armhf machine
+wget -O linuxdeploy.AppImage https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/linuxdeploy-armhf.AppImage
+chmod +x linuxdeploy.AppImage
+./linuxdeploy.AppImage --appdir AppDir --output appimage
+
+
+That will output something like:
+
+MacChanger-*.AppImage
+
+6) Rename for clean releases
+ARCH="$(uname -m)"
+mv MacChanger-*.AppImage "MacChanger-${ARCH}.AppImage"
+
+How to actually produce all 3
+Best options
+
+3 physical/VM machines (PC + arm64 device + armhf device)
+
+One powerful x86_64 box + QEMU/VMs (more complex; native is simpler)
+
+If you tell me what hardware you have (PC + Raspberry Pi 5? etc.), I’ll give you the easiest path for your setup.
+
+Important note about pkexec inside AppImage
+
+Your GUI “self-elevation” via pkexec can work, but AppImage can change the runtime path. The most reliable approach is:
+
+Keep the GUI auto-elevation (fine)
+
+Also provide a .desktop entry that runs:
+
+pkexec /path/to/MacChanger-ARCH.AppImage
+
+If you want, I can give you a single install script that:
+
+detects CPU arch
+
+installs the correct AppImage
+
+creates the .desktop launcher
+
+wires pkexec properly
 
 
 
