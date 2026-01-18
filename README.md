@@ -363,6 +363,61 @@ Uninstall:
 
 sudo ./macchanger-install.sh --uninstall
 
+Everything you need for a working multi-arch install path, as long as you have the 3 AppImages hosted and you set BASE_URL.
+
+Here’s the full checklist so you know nothing’s missing:
+
+✅ Required to ship
+
+Three AppImages (built on each CPU)
+
+MacChanger-x86_64.AppImage
+
+MacChanger-aarch64.AppImage
+
+MacChanger-armhf.AppImage
+
+Host them in one place (GitHub Releases or your download folder)
+
+Multi-arch installer script (the one I gave you)
+
+You edit: BASE_URL="..."
+
+That’s enough to:
+
+detect CPU arch
+
+download the right AppImage
+
+install to /opt/macchanger/
+
+create an app-menu launcher
+
+run with pkexec (admin prompt)
+
+✅ Recommended (but optional)
+
+Make sure pkexec exists on target machines
+The installer already tries to install PolicyKit automatically on apt/dnf/pacman systems.
+
+curl -fL <YOUR_URL>/macchanger-install.sh -o macchanger-install.sh
+chmod +x macchanger-install.sh
+sudo ./macchanger-install.sh
+
+⚠️ One thing to be aware of (common Linux issue)
+
+Some distros need FUSE to run AppImages. If an AppImage won’t launch, install:
+
+Debian/Kali/Ubuntu: sudo apt install -y libfuse2 (or fuse3 on newer)
+
+I didn’t force-install FUSE in the script to avoid messing with systems that don’t need it, but you can add it if you want.
+
+Quick sanity test after install
+pkexec /opt/macchanger/MacChanger.AppImage
+
+
+If that opens the GUI, you’re good.
+
 
 
 
