@@ -1,7 +1,7 @@
 Note: I was BMFI Got Locked Out so unlinked e-mail started New Accout After-BMFI
 https://github.com/BMFI/MacChanger-3.py/blob/main/MacChanger-3.py
 
-After-BMFI Licenes Agreement:
+After-BMFI License Agreement:
 After-BMFI valid binding permanent arbitration agreement and warranty disclaimer:
 You can use the code for free alter then redistribute the code any way you want.
 Warranty Disclaimer: Use at your own risk!
