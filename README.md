@@ -338,15 +338,30 @@ Also provide a .desktop entry that runs:
 
 pkexec /path/to/MacChanger-ARCH.AppImage
 
-If you want, I can give you a single install script that:
-
+Single install script that:
 detects CPU arch
-
 installs the correct AppImage
-
 creates the .desktop launcher
-
 wires pkexec properly
+
+What you need to do
+Host these three files somewhere (same folder/URL):
+MacChanger-x86_64.AppImage
+MacChanger-aarch64.AppImage
+MacChanger-armhf.AppImage
+Edit one line in the script:
+
+BASE_URL="https://.../download" (your GitHub Releases “latest/download” link or your download folder)
+
+Run:
+
+chmod +x macchanger-install.sh
+sudo ./macchanger-install.sh
+
+
+Uninstall:
+
+sudo ./macchanger-install.sh --uninstall
 
 
 
