@@ -538,16 +538,33 @@ Icon=macchanger
 ✔ Kali / Linux compliant
 
 ✅ Status
-
 ✔ macchanger core path remembered
-
 ✔ .desktop file validated
-
 ✔ pkexec usage correct
-
 ✔ Kali/Linux compliant
-
 ✔ ECE-ready
+
+ADDENUM:
+1) ✅ .ico bundle for MacChanger (multi-resolution)
+Includes 256/128/64/48/32/16 sizes in one file:
+Download macchanger.ico
+
+2) ✅ Auto-installer (deploys both SafeCraker + MacChanger icons)
+Installs to:
+/opt/ECE/icons/
+/usr/share/icons/hicolor/.../apps/
+Updates icon cache + desktop db
+Download install_ece_icons.sh
+Run it:
+sudo bash install_ece_icons.sh
+
+3) ✅ Unified ECE icon pack ZIP
+Everything bundled together (SafeCraker sizes + MacChanger sizes + .ico + symbolic SVG + installer):
+Download ECE_icon_pack.zip
+
+4) ✅ Panel-optimized symbolic SVG (MacChanger)
+Clean monochrome SVG for panels/themes:
+Download macchanger-symbolic.svg
 
 
 
