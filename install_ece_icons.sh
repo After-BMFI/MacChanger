@@ -1,3 +1,7 @@
+"""
+sudo bash install_ece_icons.sh
+"""
+
 #!/bin/bash
 set -e
 
