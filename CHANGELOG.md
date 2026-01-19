@@ -17,3 +17,28 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 - Detailed command log output in the GUI.
 - Optional system integration scripts (build/install/uninstall).
 - Desktop launcher support with pkexec elevation.
+
+- 📁 Recommended install locations (ECE standard)
+Primary desktop icon
+sudo cp macchanger_128x128.png /opt/ECE/icons/macchanger.png
+sudo chmod 644 /opt/ECE/icons/macchanger.png
+
+Optional: full icon theme support
+sudo install -Dm644 macchanger_256x256.png /usr/share/icons/hicolor/256x256/apps/macchanger.png
+sudo install -Dm644 macchanger_128x128.png /usr/share/icons/hicolor/128x128/apps/macchanger.png
+sudo install -Dm644 macchanger_64x64.png  /usr/share/icons/hicolor/64x64/apps/macchanger.png
+sudo install -Dm644 macchanger_symbolic.png /usr/share/icons/hicolor/symbolic/apps/macchanger-symbolic.png
+sudo gtk-update-icon-cache /usr/share/icons/hicolor
+
+
+Then your .desktop can simply use:
+
+Icon=macchanger
+
+✅ Consistency Check (ECE)
+
+✔ Matches SafeCraker shield + network hardware style
+✔ Same lighting, perspective, and color family
+✔ Symbolic icon included
+✔ Desktop-appropriate sizing
+✔ Kali / Linux compliant
