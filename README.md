@@ -134,7 +134,7 @@ This project is provided as-is for educational, testing, and authorized security
 
 👤 Author
 
-Created and maintained by Jeff Rogers is the CEO and Founder of Nutronix https://www.nutronix.pw
+Created and maintained by Jeff Rogers is the CEO & Founder of Nutronix https://www.nutronix.pw
 Nutronix.pw also the Creator of BMFI on GitHub
 ⭐ Final Notes
 MacChanger is designed to behave like a professional Kali tool:
