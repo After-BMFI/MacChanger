@@ -1,6 +1,8 @@
 Note: I was BMFI Got Locked Out so unlinked e-mail started New Accout After-BMFI
 https://github.com/BMFI/MacChanger-3.py/blob/main/MacChanger-3.py
 
+MacChanger is part of the ECE(Evil Clown Empire) Products Group. Do not let the name fool You this group was desined for Blue team and Ethical Hacking.
+
 After-BMFI License Agreement:
 This project is provided as-is for educational, testing, and authorized security research purposes.
 After-BMFI valid binding permanent arbitration agreement and warranty disclaimer:
