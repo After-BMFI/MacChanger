@@ -1,14 +1,14 @@
 You are Required to Keep this document File(and Arbitration Agreement and Warranty Disclaimer)-
 -with the Product at all times for Download or redistribution.
-MacChanger was created as part of the ECE(Evil Clown Empire) Products Group By Jeff Rogers.
+MacChanger was created as part of the ECE(Evil Ethical Clown Empire) Products Group By Jeff Rogers COPYRIGHT Nutronix.pw.
 Do Not Let the name fool You the Products Group was Created for Ethical Hacking, Blue Team and Educational Lab Testing Purposes.
 https://github.com/BMFI/MacChanger-3.py/blob/main/MacChanger-3.py is now MachChanger-0.py(Name changed)
 
 MacChanger-3.py, MacChanger-0.py and MachChanger.py
 After-BMFI valid binding permanent arbitration agreement and warranty disclaimer: You can use the code for free alter then redistribute the code any way you want.
 Warranty Disclaimer: Use at your own risk!
-After-BMFI or any person associated, affiliated or part of After-BMFI is not accountable or responsible for any harm done by you for using this code.
-This code was created by BMFI Jeff Rogers.
+After-BMFI or any Person or Organization associated, affiliated or part of After-BMFI is not accountable or responsible for any harm done by you for using this code.
+This code was created by BMFI Jeff Rogers COPYRIGHT Nutronix.pw.
 You are required to keep this file with the code for download or redistribution.
 
 Note: I was BMFI Got Locked Out so unlinked e-mail started New Accout After-BMFI
